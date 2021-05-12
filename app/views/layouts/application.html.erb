@@ -10,6 +10,13 @@
   </head>
 
   <body>
+    <div class="header" style="display: flex; justify-content: space-between; margin: 8px; border-bottom: 1px solid lightgray;">
+      <p><%= link_to 'Home', restaurants_path, class:"btn btn-primary" %></p>
+      <h1>Restaurants</h1>
+      <p><%= link_to 'Add restaurant', new_restaurant_path, class:"btn btn-primary" %></p>
+    </div>
+    <div class="content" style="margin: 32px 8px 8px 8px;">
     <%= yield %>
+    </div>
   </body>
 </html>

@@ -1,8 +1,16 @@
-<h1><%= @restaurant.name %></h1>
-<p><%= @restaurant.category %></p>
-<p><%= @restaurant.address %></p>
-<p><%= @restaurant.phone_number %></p>
-<p><%#= @restaurant.review %></p>
 
+<div class="card" style="width: 18rem; margin: 8px 0px 24px 0px; padding: 8px 8px;">
+  <h2><%= @restaurant.name %></h2>
+  <p><%= @restaurant.category %></p>
+  <p><%= @restaurant.address %></p>
+  <p><%= @restaurant.phone_number %></p>
+</div>
 <%#= link_to 'Reviews',  %>
-<%= link_to 'Home', restaurants_path %>
+<h2>Reviews <%= link_to "+", new_restaurant_review_path(params[:id]), class:'btn btn-primary' %></h2>
+<% @restaurant.reviews.each do |review| %>
+<div class="review" style='border: 1px solid black; border-radius: 8px; padding: 8px 8px; background-color: white; font-size: 12px;'>
+  <p><%= review.content %></p>
+  <p>Rating: <%= review.rating %></p>
+</div>
+  <hr>
+<% end %>
